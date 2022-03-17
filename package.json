@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "axios": "^0.26.1",
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0",
+    "sqlite": "^4.0.25",
+    "sqlite3": "^5.0.2"
+  },
+  "type": "module"
+}
