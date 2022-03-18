@@ -31,6 +31,7 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 function sendChannelMessage(channelId, message) {
     const channel = client.channels.cache.get(channelId);
 
+    console.info(message);
     channel.send(message);
 }
 
@@ -54,7 +55,6 @@ client.on("messageCreate", async (message) => {
 
 async function checkTableAvailability(tableName, schema) {
     try {
-        console.info("Checking TABLE " + tableName);
         await Db.run(`SELECT * FROM ${tableName};`);
     } catch (e) {
         console.info("Creating TABLE " + tableName);
