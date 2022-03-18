@@ -179,7 +179,7 @@ client.on("ready", () => {
             userPuuid INTEGER REFERENCES Users (Id)
         )`);
         await checkNewGames();
-    }, 10000);
+    }, 60000);
 });
 
 async function start() {
