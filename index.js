@@ -149,11 +149,10 @@ async function checkNewGames() {
             const [gameInfo, userGameInfo] = await getUserMatchInfo(matchId, user.puuid);
 
             if (await doesMatchExist(matchId) === false) {
-                const humanTime = moment.unix(gameInfo.info.gameCreation).format('dddd, MMMM Do, YYYY h:mm:ss A');
+                const humanTime = moment.unix(gameInfo.info.gameCreation / 1000).format('dddd, MMMM Do, YYYY h:mm:ss A');
                 const victoryStatus = userGameInfo.win === true
                 ? "Victory :trophy:"
                 : "Defeat :salt:"
-
 
                 sendChannelMessage(NEWS_CHANNEL_ID,
                     `**New Game from ${user.username}:**\n- ${humanTime}\n- ${victoryStatus}`);
