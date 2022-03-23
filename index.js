@@ -172,6 +172,14 @@ async function checkNewGames () {
   }
 }
 
+async function heartbeat () {
+  try {
+    Axios.get('https://cronitor.link/p/11f91a96508d4ad695681cd273abeed8/CzapKW')
+  } catch (e) {
+    console.error(e)
+  }
+}
+
 client.on('ready', () => {
   setInterval(async () => {
     await checkTableAvailability('Users', `(
@@ -186,6 +194,7 @@ client.on('ready', () => {
             userPuuid INTEGER REFERENCES Users (Id)
         )`)
     await checkNewGames()
+    await heartbeat()
   }, 60000)
 })
 
