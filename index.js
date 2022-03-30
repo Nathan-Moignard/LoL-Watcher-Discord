@@ -95,7 +95,7 @@ async function getUserMatchInfo (matchId, userPuuid) {
       }
     }
   } catch (e) {
-    console.error(e)
+    console.error(e.response.data)
     return undefined
   }
 }
